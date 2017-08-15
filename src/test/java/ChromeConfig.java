@@ -3,6 +3,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.apache.commons.lang3.SystemUtils;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +19,9 @@ public class ChromeConfig {
         options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--lang=en");
-        System.setProperty("webdriver.chrome.driver", "Chromedriver/chromedriver");
+        if (SystemUtils.IS_OS_MAC) {
+            System.setProperty("webdriver.chrome.driver", "ChromedriverMac/chromedriver");
+        }
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
