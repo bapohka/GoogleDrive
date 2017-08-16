@@ -25,7 +25,8 @@ public class LoginPage extends Tools{
     private String PASS_SUCCESS = "Password11";
     private String PASS_FAIL = "asaasdfasd";
 //button
-    private By emailIn = By.cssSelector("div#IdentifierNext");
+    private By emailIn = By.cssSelector("div#identifierNext");
+    //private By emailIn = By.id("identifierNext");
     private By passwordIn = By.cssSelector("div#passwordNext");
 
 //check element
