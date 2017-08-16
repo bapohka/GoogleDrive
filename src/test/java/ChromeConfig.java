@@ -19,11 +19,13 @@ public class ChromeConfig {
         options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--lang=en");
+        options.addArguments("--headless");
+        options.addArguments("start-maximized");
         if (SystemUtils.IS_OS_MAC) {
             System.setProperty("webdriver.chrome.driver", "ChromedriverMac/chromedriver");
         }
         driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
