@@ -19,10 +19,14 @@ public class ChromeConfig {
         options = new ChromeOptions();
         options.addArguments("--incognito");
         options.addArguments("--lang=en");
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("start-maximized");
-        if (SystemUtils.IS_OS_MAC) {
-            System.setProperty("webdriver.chrome.driver", "ChromedriverMac/chromedriver");
+            if (SystemUtils.IS_OS_MAC) {
+                System.setProperty("webdriver.chrome.driver", "ChromedriverMac/chromedriver");
+        }   if(SystemUtils.IS_OS_WINDOWS) {
+                System.setProperty("webdriver.chrome.driver", "ChromedriverWin/chromedriver");
+        }   if(SystemUtils.IS_OS_LINUX) {
+                System.setProperty("webdriver.chrome.driver", "ChromedriverLinux/chromedriver");
         }
         driver = new ChromeDriver(options);
         //driver.manage().window().maximize();
