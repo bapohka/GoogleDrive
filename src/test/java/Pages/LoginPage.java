@@ -68,6 +68,7 @@ public class LoginPage extends Tools{
 
     public void password_succesful(){
         doContinuePassword(PASS_SUCCESS);
+        sleep(1);
         Assert.assertFalse(doesElementExists("input[type='password'][name='password']"));
     }
 }
